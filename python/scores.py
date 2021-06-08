@@ -67,6 +67,7 @@ class m21Score():
 
 	def save_score(self, output_p, output_n, format):
 		self.score.write(format, output_p + output_n)
+		print("-- Score saved as " + output_n)
 
 	def get_notes_count(self):
 		notes = 0

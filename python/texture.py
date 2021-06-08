@@ -49,12 +49,13 @@ class Texture(m21Score):
 		measure = []
 		c = len(cell)
 		if c > 0:
-			ps = rd.sample(range(0, self.t_set), len(cell))
+			ps = rd.sample(range(0, self.t_set), c)
 			ps.sort()
 			cp = 0
 			for i in range(self.t_set):
 				if ps[cp] == i:
-					measure.append(self.create_note(cell[cp] + self.midi_offset + self.voice_offset * part , self.t_unit))
+					pitch = cell[cp] + self.midi_offset + self.voice_offset * part
+					measure.append(self.create_note(pitch, self.t_unit))
 					if cp < c - 1:
 						cp += 1
 				else:
@@ -72,20 +73,22 @@ class Texture(m21Score):
 			for c in range(w):
 				self.parts[r].append(self.filled_measure(self.matrix.get_cell(r, c), r))
 
+	#Creating a filled texture measure...
 	def filled_measure(self, cell, part):
 		measure = []
 		c = len(cell)
 		if c > 0:
-			ps = rd.sample(range(0, self.t_set), len(cell))
-			ps.sort()
-			cp = 0
-			for i in range(self.t_set):
-				if ps[cp] == i:
-					measure.append(self.create_note(cell[cp] + self.midi_offset + self.voice_offset * part , self.t_unit))
-					if cp < c - 1:
-						cp += 1
-				else:
-					measure.append(self.create_note(-1, self.t_unit))
+			aux_ps = rd.sample(range(1, self.t_set), c - 1)
+			aux_ps.sort()
+			ps = []
+			ps.append(0)
+			for i in range(c - 1):
+				ps.append(aux_ps[i])
+			ps.append(self.t_set)
+			for i in range(c):
+				duration = self.t_unit * (ps[i+1] - ps[i])
+				pitch = cell[i] + self.midi_offset + self.voice_offset * part
+				measure.append(self.create_note(pitch, duration))
 		else:
 			measure.append(self.create_note(-1, self.t_measure))
 		return measure
@@ -105,7 +108,8 @@ class Texture(m21Score):
 		c = len(cell)
 		if c > 0:
 			for i in range(self.t_set):
-				measure.append(self.create_note(cell[i%c] + self.midi_offset + self.voice_offset * part, self.t_unit))
+				pitch = cell[i%c] + self.midi_offset + self.voice_offset * part
+				measure.append(self.create_note(pitch, self.t_unit))
 		else:
 			measure.append(self.create_note(-1, self.t_measure))
 		return measure

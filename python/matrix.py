@@ -17,14 +17,14 @@ class Matrix():
 		self.build_cells(config)
 		self.build_status()
 
-	#Function to transport the matrix...
-	def transport(self, t):
+	#Function to move the matrix in pitch space...
+	def translation(self, t):
 		for r in range(self.h):
 			for c in range(self.w):
 				for v in range(len(self.data[r][c])):
 					self.data[r][c][v] = (self.data[r][c][v] + t) % self.mod
 
-	#Function to transport the matrix...
+	#Function to move the matrix in pitch space...
 	def invert(self):
 		for r in range(self.h):
 			for c in range(self.w):

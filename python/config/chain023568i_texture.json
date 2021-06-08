@@ -1,0 +1,15 @@
+{
+	"texture": "t_mobile_023568i",
+	"title":	"MxE: 023568i",
+	"composer": "Esteban Quito",
+	"key_signature": 0,
+	"time_signature": "2/4",
+	"time_unit": 0.25,
+	"time_measure": 2,
+	"parts": 4,
+	"matrix_file": "config/chain023568i_matrix.json",
+	"mode": "mobile",
+	"midi_offset": 60,
+	"voice_offset": 0,
+	"cycles": 1
+}

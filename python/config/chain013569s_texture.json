@@ -1,15 +1,15 @@
 {
-	"texture": "puntual",
-	"title":	"complex",
-	"composer": "Juan de los Palotes",
+	"texture": "t_puntual_013569s",
+	"title":	"MxE: 013469 swap",
+	"composer": "Dolores Fuertes",
 	"key_signature": 0,
 	"time_signature": "3/4",
-	"time_unit": 0.25,
+	"time_unit": 0.5,
 	"time_measure": 3,
 	"parts": 4,
 	"matrix_file": "config/chain013469swap_matrix.json",
-	"mode": "mobile",
+	"mode": "puntual",
 	"midi_offset": 72,
-	"voice_offset": -12,
+	"voice_offset": 0,
 	"cycles": 1
 }

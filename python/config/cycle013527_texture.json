@@ -1,0 +1,15 @@
+{
+	"texture": "t_filled_013527",
+	"title":	"MxO: 013527",
+	"composer": "Fel Pudo",
+	"key_signature": 0,
+	"time_signature": "4/4",
+	"time_unit": 0.5,
+	"time_measure": 4,
+	"parts": 4,
+	"matrix_file": "config/cycle013527_3_matrix.json",
+	"mode": "filled",
+	"midi_offset": 48,
+	"voice_offset": 0,
+	"cycles": 1
+}

@@ -1,0 +1,15 @@
+{
+	"texture": "t_mobile_0682410",
+	"title":	"MxO: 0692410",
+	"composer": "Elsa Lamín",
+	"key_signature": 0,
+	"time_signature": "3/4",
+	"time_unit": 0.25,
+	"time_measure": 3,
+	"parts": 3,
+	"matrix_file": "config/cycle0682410_4_matrix.json",
+	"mode": "mobile",
+	"midi_offset": 60,
+	"voice_offset": 0,
+	"cycles": 1
+}
