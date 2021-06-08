@@ -1,0 +1,15 @@
+{
+	"texture": "puntual",
+	"title":	"M. E. 013469",
+	"composer": "Juan de los Palotes",
+	"key_signature": 0,
+	"time_signature": "3/4",
+	"time_unit": 0.5,
+	"time_measure": 3,
+	"parts": 4,
+	"matrix_file": "config/chain013469_matrix.json",
+	"mode": "puntual",
+	"midi_offset": 60,
+	"voice_offset": 0,
+	"cycles": 1
+}

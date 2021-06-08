@@ -1,0 +1,15 @@
+{
+	"texture": "puntual",
+	"title":	"complex",
+	"composer": "Juan de los Palotes",
+	"key_signature": 0,
+	"time_signature": "3/4",
+	"time_unit": 0.25,
+	"time_measure": 3,
+	"parts": 4,
+	"matrix_file": "config/chain013469swap_matrix.json",
+	"mode": "mobile",
+	"midi_offset": 0,
+	"voice_offset": 0,
+	"cycles": 1
+}
