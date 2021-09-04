@@ -39,7 +39,6 @@ class Texture(m21Score):
 	def add_puntual_matrix(self):
 		h = self.matrix.h
 		w = self.matrix.w
-		measure = []
 		for r in range(h):
 			for c in range(w):
 				self.parts[r].append(self.puntual_measure(self.matrix.get_cell(r, c), r))
@@ -68,7 +67,6 @@ class Texture(m21Score):
 	def add_filled_matrix(self):
 		h = self.matrix.h
 		w = self.matrix.w
-		measure = []
 		for r in range(h):
 			for c in range(w):
 				self.parts[r].append(self.filled_measure(self.matrix.get_cell(r, c), r))
@@ -97,7 +95,6 @@ class Texture(m21Score):
 	def add_mobile_matrix(self):
 		h = self.matrix.h
 		w = self.matrix.w
-		measure = []
 		for r in range(h):
 			for c in range(w):
 				self.parts[r].append(self.mobile_measure(self.matrix.get_cell(r, c), r))

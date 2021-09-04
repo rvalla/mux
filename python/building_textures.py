@@ -1,11 +1,8 @@
 import json as js
 from texture import Texture
 
-config_files = [js.load(open("config/chain013569_texture.json")),
-				js.load(open("config/chain013569s_texture.json")),
-				js.load(open("config/chain023568i_texture.json")),
-				js.load(open("config/cycle013527_texture.json")),
-				js.load(open("config/cycle0682410_texture.json"))]
+#Example code to use matrix object to create a musical texture...
+config_files = [js.load(open("config/chain013469_texture.json"))]
 
 for c in config_files:
 	for i in range(3):
@@ -20,4 +17,5 @@ for c in config_files:
 		t.matrix.translation(3)
 		t.add_cycle()
 		filename = c["texture"] + str(i + 3) + ".xml"
-		t.save_score("xml/", filename, "xml")
+		#t.save_score("xml/", filename, "xml")
+		t.show_score()

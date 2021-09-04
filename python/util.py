@@ -52,6 +52,7 @@ def control_stream(notes_count, durations, pitch_values):
 		note_stream.append(n)
 	return note_stream
 
+#Functions to create a melody alternating pitch and duration values in a cycle
 def circle_melody(note_list, duration_list):
 	nc = len(note_list) #Notes count
 	dc = len(duration_list) #Durations count
@@ -61,7 +62,7 @@ def circle_melody(note_list, duration_list):
 		new_note = note.Note(note_list[n%nc]) #Adding the note
 		new_note.duration = duration.Duration(duration_list[n%dc]) #Asigning the duration
 		note_stream.append(new_note)
-	note_stream.show()
+	return note_stream
 
 def lowest_multiple(a, b):
 	n = 1
