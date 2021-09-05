@@ -76,12 +76,9 @@ class Texture(m21Score):
 		measure = []
 		c = len(cell)
 		if c > 0:
-			aux_ps = rd.sample(range(1, self.t_set), c - 1)
-			aux_ps.sort()
-			ps = []
-			ps.append(0)
-			for i in range(c - 1):
-				ps.append(aux_ps[i])
+			ps = rd.sample(range(1, self.t_set), c - 1)
+			ps.sort()
+			ps.insert(0,0)
 			ps.append(self.t_set)
 			for i in range(c):
 				duration = self.t_unit * (ps[i+1] - ps[i])
