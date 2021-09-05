@@ -1,0 +1,15 @@
+{
+	"counterpoint": "c_2_random",
+	"title":	"Random Counterpoint",
+	"composer": "The machine",
+	"key_signature": 0,
+	"time_signature": "3/4",
+	"time_unit": 0.25,
+	"time_measure": 3,
+	"parts": 3,
+	"mode": "control",
+	"control": "0,0,0,0,0,7,7,7,4,4,11",
+	"midi_offset": 72,
+	"voice_offset": -12,
+	"cycles": 10
+}
