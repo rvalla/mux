@@ -22,6 +22,7 @@ class Counterpoint(m21Score):
 		self.voice_offset = config["voice_offset"]
 		if config["markov"]:
 			markovc = js.load(open(config["markovt"]))
+			self.markov_last = [0 for p in range(self.parts_count)]
 			self.markov = Markovt(markovc)
 		self.build_counterpoint()
 
@@ -39,6 +40,7 @@ class Counterpoint(m21Score):
 		elif self.mode == "conditional":
 			self.add_conditional_cycle()
 		elif self.mode == "markov":
+			self.markov_last = [self.markov.first_note for n in self.markov_last]
 			self.add_markov_cycle()
 
 	#Functions to create random counterpoint...
@@ -106,7 +108,6 @@ class Counterpoint(m21Score):
 
 	def markov_measure(self, part):
 		measure = []
-		last = self.markov.first_note
 		ps = rd.sample(range(1, self.t_set), self.get_measure_cardinality())
 		ps.sort()
 		ps.insert(0,0)
@@ -114,9 +115,9 @@ class Counterpoint(m21Score):
 		for i in range(len(ps)-1):
 			diff = ps[i+1] - ps[i]
 			duration = self.t_unit * diff
-			pitch_class = self.get_markov_pitch(last)
-			last = pitch_class
-			pitch = self.get_markov_pitch(last) + self.midi_offset + self.voice_offset * part
+			pitch_class = self.get_markov_pitch(self.markov_last[part])
+			self.markov_last[part] = pitch_class
+			pitch = pitch_class + self.midi_offset + self.voice_offset * part
 			measure.append(self.create_note(pitch, duration))
 		return measure
 
