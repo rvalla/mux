@@ -4,14 +4,13 @@ from scores import m21Score
 class LigetiStorm(m21Score):
 	"A machine to make a Ligeti's storm"
 
-	def __init__(self, title, composer, key_signature, time_signature, parts, cycles, part_offset, \
-					t_offset, p_offset, pitches, durations):
-		m21Score.__init__(self, title, composer, key_signature, time_signature, parts)
-		self.notes = self.build_motif(pitches, durations)
-		self.cycles = cycles #Number of cycles
-		self.part_off = part_offset
-		self.t_off = t_offset #The offset for each voice in the canon
-		self.p_off = p_offset #Interval distance for the canon
+	def __init__(self, config):
+		m21Score.__init__(self, config["title"], config["composer"], config["key"], config["time_s"], config["parts"])
+		self.notes = self.build_motif(self.get_list(config["pitches"], "int"), self.get_list(config["durations"], "float"))
+		self.cycles = config["cycles"] #Number of cycles
+		self.part_off = config["part_offset"]
+		self.t_off = config["t_offset"] #The offset for each voice in the canon
+		self.p_off = config["p_offset"] #Interval distance for the canon
 		self.build_storm(self.t_off, self.p_off, self.cycles, self.part_off)
 		print(self)
 
@@ -47,3 +46,14 @@ class LigetiStorm(m21Score):
 		r = note.Rest()
 		r.duration = duration.Duration(distance)
 		return r
+
+	#A function to create a list from configuration string
+	def get_list(self, values, type):
+		input = values.split(",")
+		values = []
+		for v in input:
+			if type == "int":
+				values.append(int(v))
+			elif type == "float":
+				values.append(float(v))
+		return values

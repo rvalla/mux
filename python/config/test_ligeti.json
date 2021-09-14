@@ -1,0 +1,14 @@
+{
+	"title": "Tormenta de Ligeti",
+	"composer":	"Elsa Lamín",
+	"output": "s_testing",
+	"key": 0,
+	"time_s": "3/4",
+	"parts": 12,
+	"cycles": 3,
+	"part_offset": 3,
+	"t_offset": 0.25,
+	"p_offset": -4,
+	"pitches": "72,75,77,70,78,79",
+	"durations": "1,0.25,0.5,0.5,0.125,1"
+}
