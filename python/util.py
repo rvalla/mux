@@ -71,3 +71,24 @@ def lowest_multiple(a, b):
 		if (n%b == 0):
 			break #We save the minumun which is b multiple too
 	return n
+
+#Functions to create a melody using Collatz's conjecture
+def collatz_melody(start_n, note_m, note_min, duration_m, duration_min):
+	collatz = collatz_list(start_n)
+	note_stream = stream.Stream()
+	for c in collatz:
+		new_note = note.Note(c%note_m + note_min) #Adding the note
+		new_note.duration = duration.Duration(duration_min * (c%duration_m+1)) #Asigning the duration
+		note_stream.append(new_note)
+	return note_stream
+
+def collatz_list(start_n):
+	collatz = [start_n]
+	last_n = start_n
+	while last_n != 1:
+		if last_n % 2 == 0:
+			last_n = last_n // 2
+		else:
+			last_n = last_n * 3 + 1
+		collatz.append(last_n)
+	return collatz
